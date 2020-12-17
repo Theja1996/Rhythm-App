@@ -1,6 +1,6 @@
 <template>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
           <img src="/src/assets/play.svg" alt="logo" />
   <a class="navbar-brand" href="#">Rhythm</a>
  
@@ -34,5 +34,7 @@ export default {
 </script>
 
 <style >
-
+.navbar-brand{
+  font-size: 30px;
+}
 </style>

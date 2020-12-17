@@ -18,6 +18,7 @@
 import axios from "axios";
 
 export default {
+  props:['resList'],
   data() {
     return {
       newSet: []
@@ -30,14 +31,16 @@ export default {
       axios
         // .get("https://api.spotify.com/v1/search?q=" + key + "&type=track")
         .get(
-          "https://api.mixcloud.com/search/?q=" + key + "&amp;type=cloudcast"
+          "https://api.mixcloud.com/search/?q=" +key+ "&amp;type=cloudcast"
         )
 
         .then(response => {
-          this.newSet = response.data;
+          this.newSet = response.data.tracks.items;
+           console.log(this.newSet);
         })
-        .catch(function(error) {
-          console.log(error);
+        .catch(e=> {
+          this.console.push(e);
+         
         });
 
       this.$emit("newDataSet", this.newSet);

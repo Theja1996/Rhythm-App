@@ -1,25 +1,25 @@
 <template>
  <div class="row carousel-row">
-        <div class="col-xs-8 col-xs-offset-2 slide-row">
+        <div class="col-xs-8 col-xs-offset-2 slide-row" v-for="res in myres">
             <div id="carousel-1" class="carousel slide slide-carousel" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="item active">
-                        <img src="" alt="Image">
+                        <img src="res.album.images[0].url" alt="Image">
                     </div>
 
                 </div>
             </div>
             <div class="slide-content">
-                <h4>name</h4>
+                <h4>{{res.artists[0].name}} - {{res.name}}</h4>
                 <p>
-                    Album 
+                   Album - {{ res.album.name}} <br>
                 </p>
             </div>
             <div class="slide-footer">
                 <span class="pull-right buttons">
-                  
+       <router-link :to="{name: 'track', params: {  id:res.id }}">             
 <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i> Show More</button>
-
+</router-link>
                 </span>
             </div>
         </div>
@@ -28,7 +28,7 @@
 
 <script>
 export default {
-    props:['reList']
+    props:['myres']
 }
 </script>
 
